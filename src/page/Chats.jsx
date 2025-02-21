@@ -51,17 +51,7 @@ const Chats = () => {
         setLoading(false);
       };
     
-      const handleTranslate = async (message, targetLang) => {
-        setLoading(true);
-        try {
-          const translator = await self.ai.translator.create();
-          const translatedText = await translator.translate(message.text, targetLang);
-          updateMessage(message, { translation: translatedText });
-        } catch (error) {
-          console.error("Translation failed:", error);
-        }
-        setLoading(false);
-      };
+      
     
       const updateMessage = (message, updates) => {
         setMessages((prev) =>
@@ -80,6 +70,20 @@ const Chats = () => {
                         Summarize, Translate and Detect Language with <span className="text-blue-700">PGpt</span>
                     </h1>
                 </div>
+
+                {/* features */}
+
+                {/* <div className="grid grid-cols-3 place-items-center">
+
+                    <div className="border px-2 py-2 h-20">
+                        Summarize
+                    </div>
+                    <div className="border px-2 py-2 h-20">
+                        <h1>Detect Code</h1>
+                    </div>
+                    <div></div>
+
+                </div> */}
 
                 {/* Chat Messages */}
                 <div className="h-[60vh] overflow-y-auto">
